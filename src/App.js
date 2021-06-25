@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux'
 import MainNavigation from './navigation/mainNavigation';
 import { View } from 'react-native';
-import store  from './configureStore'
+import configureStore  from './configureStore'
 
-// const store = configureStore()
+const store = configureStore()
 const App = () => {
   const [showSplash, setShowSplash] = React.useState(true);
   useEffect(() => {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {Text, View, StyleSheet, AppState, Image} from 'react-native';
 import Button from '../components/Button/ThemeButton';
 import {useNavigation} from '@react-navigation/core';
@@ -12,12 +13,34 @@ import SocialIcons from '../components/SocialIcons';
 import colors from '../constants/colors';
 import TermsCondition from '../assets/icons/terms_condition.svg';
 import useScreenDimensions from '../components/Hooks/useScreenDimensions';
-const Signup = ({params}) => {
-  const navigation = useNavigation();
-  const signupSubmit = () => {
-    navigation.navigate('Select Profile');
-  };
+import { userCreate } from '../actions/auth';
+
+const Signup = ({ params }) => {
   const {width} = useScreenDimensions('screen');
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+  const navigation = useNavigation();
+  const dispatch = useDispatch()
+  const { userData } = useSelector(state => state.auth);
+  console.log("create user api call" , userData)
+  const signupSubmit = () => {
+    dispatch(userCreate(email, phone, password))
+      .then(isAuthenticated => {
+        if (isAuthenticated) {
+          navigation.navigate('Select Profile');
+        } else {
+          alert("Failed To Create User")
+        }
+    })
+  };
+  const onChangeEmailText = (val) => {
+    setEmail(val)
+  }
+  const onChangePasswordText = (val) => {
+    setPassword(val)
+  }
+  
   return (
     <Container
       showHeader
@@ -48,6 +71,7 @@ const Signup = ({params}) => {
             label="Email/Mobile Number"
             style={globalStyles.ml16}
             showLabel
+            onChangeText = {(e) => onChangeEmailText(e)}
           />
           <View style={globalStyles.mt40}>
             <Input
@@ -57,6 +81,7 @@ const Signup = ({params}) => {
               label="Create Password"
               showLabel
               style={globalStyles.ml16}
+              onChangeText = {(e) => onChangePasswordText(e)}
             />
           </View>
           <View

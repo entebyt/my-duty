@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -11,12 +11,28 @@ import themeInputStyles from '../styles/themeInputStyles';
 import EmailIcon from '../assets/icons/email.svg';
 import PasswordIcon from '../assets/icons/password.svg';
 import SocialIcons from '../components/SocialIcons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-const Login = ({params}) => {
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { loginUser } from '../actions/auth';
+// import { useDispatch, useSelector } from 'react-redux'
+const Login = ({ params }) => {
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
   const navigation = useNavigation();
+  const dispatch = useDispatch()
+  const { loginData } = useSelector(state => state.auth);
+  console.log("login api call" , loginData)
   const loginSubmit = () => {
-    navigation.navigate('Location');
+    // navigation.navigate('Location');
+    dispatch(loginUser(email,phone,password))
+
   };
+  const onChangeEmailText = (val) => {
+    setEmail(val)
+  }
+  const onChangePasswordText = (val) => {
+    setPassword(val)
+  }
   return (
     <Container
       scroll
@@ -56,6 +72,7 @@ const Login = ({params}) => {
           customlabelStyle={themeInputStyles.inputLabel}
           showLabel
           style={globalStyles.ml16}
+          onChangeText = {(e) => onChangeEmailText(e)}
         />
         <View style={globalStyles.mt40}>
           <Input
@@ -65,6 +82,7 @@ const Login = ({params}) => {
             customlabelStyle={themeInputStyles.inputLabel}
             showLabel
             style={globalStyles.ml16}
+            onChangeText = {(e) => onChangePasswordText(e)}
           />
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
