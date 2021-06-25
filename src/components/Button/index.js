@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
+  View,
 } from 'react-native';
 
 const Button = ({
@@ -12,6 +13,9 @@ const Button = ({
   customTitleStyle = styles.titleStyle,
   color = '#2d248a',
   loading = false,
+  showIcon = false,
+  showType = 'before',
+  icon: Icon,
   ...rest
 }) => (
   <TouchableOpacity
@@ -20,7 +24,15 @@ const Button = ({
     {loading ? (
       <ActivityIndicator color={color} />
     ) : (
-      <Text style={customTitleStyle}>{title}</Text>
+      <View style={styles.textContainerStyle}>
+        {showIcon && showType === 'before' && (
+          <View style>{Icon ? <Icon /> : <ArrowRight />}</View>
+        )}
+        <Text style={customTitleStyle}>{title}</Text>
+        {showIcon && showType === 'after' && (
+          <View style>{Icon ? <Icon /> : <ArrowRight />}</View>
+        )}
+      </View>
     )}
   </TouchableOpacity>
 );
@@ -31,5 +43,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   titleStyle: {textAlign: 'center', color: '#fff'},
+  textContainerStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 export default Button;

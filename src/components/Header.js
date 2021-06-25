@@ -9,12 +9,24 @@ import {useNavigation} from '@react-navigation/native';
 import globalStyles from '../styles/globalStyles';
 import ChevronIcon from '../assets/icons/chevron_left.svg';
 import CircleImage from './CircleImage';
-const Header = ({title, headerStyle}) => {
+const Header = ({
+  title,
+  headerStyle,
+  titleType = 'title',
+  headerBackFunction,
+  children,
+}) => {
   const navigation = useNavigation();
   return (
     <View style={[styles.headerContainer, headerStyle]}>
-      <View style={globalStyles.flex1} onPress={() => navigation.goBack()}>
+      <View
+        style={[
+          titleType === 'title2' ? globalStyles.mr18 : globalStyles.flex1,
+        ]}>
         <CircleImage
+          onPress={
+            headerBackFunction ? headerBackFunction : () => navigation.goBack()
+          }
           fallback
           style={globalStyles.shadow}
           icon={ChevronIcon}
@@ -24,24 +36,12 @@ const Header = ({title, headerStyle}) => {
       </View>
 
       <View>
-        <Text style={globalStyles.title}>{title}</Text>
+        <Text style={globalStyles[titleType]}>{title}</Text>
       </View>
 
-      <View style={[globalStyles.row, globalStyles.flex1]}>
-        <TouchableOpacity onPress={() => navigation.navigate('Search')}>
-          {/* <Image
-            resizeMode="contain"
-            style={{width: 20}}
-            source={require('../images/icons/search.png')}
-          /> */}
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          {/* <Image
-            resizeMode="contain"
-            style={{width: 20, marginLeft: 16}}
-            source={require('../images/icons/profile.png')}
-          /> */}
-        </TouchableOpacity>
+      <View
+        style={[globalStyles.row, globalStyles.justifyEnd, globalStyles.flex1]}>
+        {children}
       </View>
     </View>
   );

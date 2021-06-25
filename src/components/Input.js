@@ -1,3 +1,7 @@
+/* This module is developed by Dhruv Sachdeva 
+`  Github - https://github.com/entebyt/
+*/
+
 import * as React from 'react';
 import {TextInput, StyleSheet, View, Text} from 'react-native';
 import colors from '../constants/colors';
@@ -65,7 +69,7 @@ const Input = ({
       <View
         style={customInputStyle ? customInputStyle : defaultStyles.inputStyle}>
         {Icon && <Icon height="24" />}
-        <TextInput {...rest} onBlur={onBlur} onFocus={onFocus} />
+        <TextInput onBlur={onBlur} onFocus={onFocus} {...rest} />
       </View>
       {showErrorMessage && required && (
         <Text style={defaultStyles.errorStyle}>{errorMessage}</Text>

@@ -42,7 +42,7 @@ const Button = ({
           <Text></Text>
           <Text style={customTitleStyle}>{title}</Text>
 
-          <View>{Icon ? <Icon /> : <ArrowRight />}</View>
+          {showIcon && <View>{Icon ? <Icon /> : <ArrowRight />}</View>}
         </View>
       )}
     </TouchableOpacity>

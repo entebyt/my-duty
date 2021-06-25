@@ -12,5 +12,12 @@ export default StyleSheet.create({
     borderRadius: 8,
     paddingTop: 8,
   },
-  searchInputStyle: {borderWidth: 1, borderColor: '#EEF2FE', borderRadius: 10},
+  searchInputStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    borderColor: '#EEF2FE',
+    borderRadius: 10,
+  },
 });

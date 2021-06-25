@@ -8,7 +8,7 @@ const CircleButton = ({size, color, border, borderWidth, ...rest}) => {
     container: {
       height: size,
       justifyContent: 'center',
-      borderWidth: (border && borderWidth ? borderWidth : 1) || 0,
+      borderWidth: (border && (borderWidth ? borderWidth : 1)) || 0,
       borderColor: color,
       alignItems: 'center',
       width: size, //The Width must be the same as the height

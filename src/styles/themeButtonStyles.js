@@ -17,4 +17,5 @@ export default StyleSheet.create({
     shadowColor: 'black',
   },
   themeText: {fontSize: 16, textAlign: 'center', color: colors.textprimary},
+  buttonTitle: {textAlign: 'center', color: '#fff'},
 });

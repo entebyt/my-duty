@@ -4,11 +4,11 @@ import colors from '../constants/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import CircleButton from './Button/CircleButton';
-import globalStyles from '../styles/globalStyles';
 import Home from '../assets/icons/home_active.svg';
-import NotificationIcon from '../assets/icons/notification_inactive.svg';
+import NotificationIcon from '../assets/icons/notification_active.svg';
 import PlusIcon from '../assets/icons/add.svg';
 import useScreenDimensions from './Hooks/useScreenDimensions';
+import globalStyles from '../styles/globalStyles';
 // navigation options
 
 // Bottom navigation component
@@ -49,7 +49,7 @@ const BottomNavigatorItem = ({icon: Icon, route}) => {
 
   return (
     <TouchableOpacity
-      style={{alignItems: 'center'}}
+      style={globalStyles.alignCenter}
       onPress={() => navigateTo(route)}>
       <Icon />
       <Text style={styles.routeText}>{route}</Text>
