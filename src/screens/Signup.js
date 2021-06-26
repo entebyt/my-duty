@@ -12,6 +12,8 @@ import SocialIcons from '../components/SocialIcons';
 import colors from '../constants/colors';
 import TermsCondition from '../assets/icons/terms_condition.svg';
 import useScreenDimensions from '../components/Hooks/useScreenDimensions';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import CheckBox from '../components/Checkbox';
 const Signup = ({params}) => {
   const navigation = useNavigation();
   const signupSubmit = () => {
@@ -46,7 +48,7 @@ const Signup = ({params}) => {
             icon={EmailIcon}
             customlabelStyle={themeInputStyles.inputLabel}
             label="Email/Mobile Number"
-            style={globalStyles.ml16}
+            style={[globalStyles.ml16, globalStyles.flex1]}
             showLabel
           />
           <View style={globalStyles.mt40}>
@@ -56,7 +58,7 @@ const Signup = ({params}) => {
               customlabelStyle={themeInputStyles.inputLabel}
               label="Create Password"
               showLabel
-              style={globalStyles.ml16}
+              style={[globalStyles.ml16, globalStyles.flex1]}
             />
           </View>
           <View
@@ -65,8 +67,13 @@ const Signup = ({params}) => {
               globalStyles.mt8,
               globalStyles.alignCenter,
             ]}>
-            <TermsCondition />
-
+            <View>
+              <CheckBox
+                size={16}
+                style={{backgroundColor: colors.gray}}
+                color={{checked: '#943993', blur: '#943993'}}
+              />
+            </View>
             <Text style={[styles.termsText, {marginTop: -4}, globalStyles.ml8]}>
               Accept the terms & Conditions
             </Text>
@@ -82,7 +89,12 @@ const Signup = ({params}) => {
           <View style={[globalStyles.selfCenter, globalStyles.my16]}>
             <SocialIcons />
           </View>
-          <Text style={[globalStyles.label, styles.link]}>Back to Sign In</Text>
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate('Login')}>
+            <Text style={[globalStyles.label, styles.link]}>
+              Back to Sign In
+            </Text>
+          </TouchableWithoutFeedback>
         </View>
       </View>
     </Container>

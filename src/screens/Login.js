@@ -10,7 +10,10 @@ import themeInputStyles from '../styles/themeInputStyles';
 import EmailIcon from '../assets/icons/email.svg';
 import PasswordIcon from '../assets/icons/password.svg';
 import SocialIcons from '../components/SocialIcons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native-gesture-handler';
 const Login = ({params}) => {
   const navigation = useNavigation();
   const loginSubmit = () => {
@@ -54,7 +57,7 @@ const Login = ({params}) => {
           icon={EmailIcon}
           customlabelStyle={themeInputStyles.inputLabel}
           showLabel
-          style={globalStyles.ml16}
+          style={[globalStyles.ml16, globalStyles.flex1]}
         />
         <View style={globalStyles.mt40}>
           <Input
@@ -63,7 +66,7 @@ const Login = ({params}) => {
             icon={PasswordIcon}
             customlabelStyle={themeInputStyles.inputLabel}
             showLabel
-            style={globalStyles.ml16}
+            style={[globalStyles.ml16, globalStyles.flex1]}
           />
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
@@ -78,7 +81,11 @@ const Login = ({params}) => {
         <View style={[globalStyles.selfCenter, globalStyles.my16]}>
           <SocialIcons />
         </View>
-        <Text style={[globalStyles.label, styles.link]}>Create an account</Text>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
+          <Text style={[globalStyles.label, styles.link]}>
+            Create an account
+          </Text>
+        </TouchableWithoutFeedback>
       </View>
     </Container>
   );
