@@ -87,6 +87,7 @@ const ProfileSelector = ({title, selectProfile}) => (
       </Text>
       <View style={{position: 'absolute', right: 0}}>
         <CircleButton
+          onPress={selectProfile}
           icon={ArrowRight}
           color={colors.white}
           size={65}
