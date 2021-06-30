@@ -25,13 +25,24 @@ const Signup = ({ params }) => {
   const { userData } = useSelector(state => state.auth);
   console.log("create user api call" , userData)
   const signupSubmit = () => {
+    //validation
+    if(email === "" && password === "") {
+      alert('Email and password cannot be empty')
+      return;
+    } else if (email === "") {
+      alert('Please enter Email')
+      return;
+    } else if (password === "") {
+      alert('Please Enter Password')
+      return;
+    }
+
     dispatch(userCreate(email, phone, password))
       .then(isAuthenticated => {
         if (isAuthenticated) {
           navigation.navigate('Select Profile');
-        } else {
-          alert("Failed To Create User")
         }
+       
     })
   };
   const onChangeEmailText = (val) => {

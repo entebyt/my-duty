@@ -13,23 +13,39 @@ import PasswordIcon from '../assets/icons/password.svg';
 import SocialIcons from '../components/SocialIcons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { loginUser } from '../actions/auth';
-// import { useDispatch, useSelector } from 'react-redux'
 const Login = ({ params }) => {
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [password, setPassword] = useState('')
-  const navigation = useNavigation();
-  const dispatch = useDispatch()
-  const { loginData } = useSelector(state => state.auth);
-  console.log("login api call" , loginData)
-  const loginSubmit = () => {
-    // navigation.navigate('Location');
-    dispatch(loginUser(email,phone,password))
+const [email, setEmail] = useState('')
+const [phone, setPhone] = useState('')
+const [password, setPassword] = useState('')
+const navigation = useNavigation();
+const dispatch = useDispatch()
+const { loginData } = useSelector(state => state.auth);
+console.log("login api call", loginData)
 
-  };
+  const loginSubmit = () => {
+    
+    if (email === "" && password === "") {
+      alert('Email and password cannot be empty')
+      return;
+    } else if (email === "") {
+      alert('Please enter Email')
+      return;
+    } else if (password === "") {
+      alert('please enter  password')
+      return;
+    }
+    dispatch(loginUser(email, phone, password))
+    
+      .then(isAuthenticated => {
+        if (isAuthenticated) {
+          navigation.navigate('Location');
+        }
+      })
+  }
   const onChangeEmailText = (val) => {
     setEmail(val)
   }
+
   const onChangePasswordText = (val) => {
     setPassword(val)
   }
