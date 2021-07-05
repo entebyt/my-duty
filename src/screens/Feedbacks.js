@@ -20,9 +20,12 @@ const Feedbacks = ({navigation}) => {
     });
   };
   const options = [
-    [{title: 'Reply', onPress: () => navigation.navigate('FeedbackReply')}],
+    [{title: 'Reply', onPress: () => navigation.navigate('Reply Feedback')}],
     [
-      {title: 'Edit', onPress: () => navigation.navigate('FeedbackReply')},
+      {
+        title: 'Edit',
+        onPress: () => navigation.navigate('Reply Feedback', {type: 'edit'}),
+      },
       {title: 'Delete', onPress: deleteFeedback},
     ],
   ];

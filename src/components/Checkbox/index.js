@@ -1,7 +1,7 @@
 /* This module is developed by Dhruv Sachdeva 
 `  Github - https://github.com/entebyt/
 */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import CheckMarkIcon from '../../assets/icons/checkmark.svg';
 import CheckMarkIcon2 from '../../assets/icons/checkmark_2.svg';
@@ -12,9 +12,13 @@ const CheckBox = ({
   size = 15,
   color = {checked: '#5050FF', blur: '#5d5d5d'},
   type,
+  state,
   ...rest
 }) => {
   const [isChecked, setCheckStatus] = React.useState(false);
+  useEffect(() => {
+    setCheckStatus(state);
+  }, [state]);
   return (
     <TouchableOpacity
       style={[

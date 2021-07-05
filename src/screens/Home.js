@@ -43,7 +43,6 @@ const Home = ({navigation}) => {
             globalStyles.row,
             globalStyles.spaceBetween,
             globalStyles.alignCenter,
-
             globalStyles.mt20,
           ]}>
           <Input

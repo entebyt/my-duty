@@ -26,7 +26,7 @@ const Signup = ({params}) => {
       contentContainerStyle={[globalStyles.p0, {paddingBottom: 16}]}
       headerProps={{headerStyle: styles.headerStyle}}
       scroll
-      style={{marginTop: -60}}>
+      style={{marginTop: -80}}>
       <View style={styles.backgroundContainer}>
         <Image
           style={[{width}, styles.background]}

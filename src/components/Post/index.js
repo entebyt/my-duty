@@ -15,12 +15,24 @@ const Post = ({
   postTitle = 'Oxygen for Varya',
   showAction = true,
   otherData,
+  block,
 }) => {
+  const {dispatch} = React.useContext(Context);
+  const [showButton, setShowButton] = React.useState(false);
   const blockPost = () => {
     dispatch({
       type: 'modalState',
       modalState: {
         title: 'Are you sure you want to block this post?',
+        visible: true,
+      },
+    });
+  };
+  const unblockPost = () => {
+    dispatch({
+      type: 'modalState',
+      modalState: {
+        title: 'Are you sure you want to unblock this post?',
         visible: true,
       },
     });
@@ -45,6 +57,7 @@ const Post = ({
       },
     });
   };
+
   return (
     <View>
       <View style={globalStyles.px8}>
@@ -54,18 +67,21 @@ const Post = ({
           navigation={navigation}
           showStatus
           status="Active"
+          action={() => setShowButton(!showButton)}
           userData={{name: 'Pieroborgo', about: 'Florence, Italy'}}
         />
         <View>
-          <View style={[{position: 'absolute', right: 10}]}>
-            <Button
-              color="#fafafa"
-              customTitleStyle={styles.blockButtonTitle}
-              customButtonContainer={styles.blockButton}
-              onPress={blockPost}
-              title="Block"
-            />
-          </View>
+          {showButton && (
+            <View style={[{position: 'absolute', right: 10}]}>
+              <Button
+                color="#fafafa"
+                customTitleStyle={styles.blockButtonTitle}
+                customButtonContainer={styles.blockButton}
+                onPress={block ? blockPost : unblockPost}
+                title={block ? 'Block' : 'Unblock'}
+              />
+            </View>
+          )}
           <ImageBackground
             style={styles.postImage}
             source={require('../../assets/images/post_image.png')}>

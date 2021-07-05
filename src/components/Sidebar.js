@@ -52,7 +52,7 @@ const Sidebar = ({navigation}) => {
     },
     {
       title: 'Terms & Condition',
-      onPress: () => navigate('TermsCondition'),
+      onPress: () => navigate('TC'),
     },
     {
       title: 'Privacy Policy',
@@ -60,7 +60,7 @@ const Sidebar = ({navigation}) => {
     },
     {
       title: 'About Us',
-      onPress: () => navigate('About Us'),
+      onPress: () => navigate('About'),
     },
     {
       title: 'Contact Admin',

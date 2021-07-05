@@ -3,6 +3,10 @@ import {Text, View, StyleSheet} from 'react-native';
 import CheckBox from './index.js';
 import globalStyles from '../../styles/globalStyles';
 import colors from '../../constants/colors';
+import {
+  TouchableWithoutFeedback,
+  TouchableHighlight,
+} from 'react-native-gesture-handler';
 
 const ThemeCheckbox = ({title, onChecked, status}) => {
   const [state, checkboxState] = React.useState(false);
@@ -16,31 +20,34 @@ const ThemeCheckbox = ({title, onChecked, status}) => {
     Completed: '#415EB6',
   };
   return (
-    <View
-      style={[
-        styles.container,
-        globalStyles.px24,
-        {backgroundColor: state ? '#EFE0FF' : '#FFF'},
-      ]}>
-      <CheckBox
-        onPress={defaultOnPress}
-        size={24}
-        color={{checked: '#DADFE6', blur: '#DADFE6'}}
-        style={{
-          backgroundColor: state ? '#A66AEB' : '#FFF',
-          borderRadius: 4,
-          marginRight: 12,
-        }}
-      />
-      <Text style={styles.title}>{title}</Text>
+    <TouchableWithoutFeedback onPress={() => checkboxState(!state)}>
       <View
         style={[
-          globalStyles.ml12,
-          styles.status,
-          {backgroundColor: statusColor[status]},
-        ]}
-      />
-    </View>
+          styles.container,
+          globalStyles.px24,
+          {backgroundColor: state ? '#EFE0FF' : '#FFF'},
+        ]}>
+        <CheckBox
+          // onPress={defaultOnPress}
+          state={state}
+          size={24}
+          color={{checked: '#DADFE6', blur: '#DADFE6'}}
+          style={{
+            backgroundColor: state ? '#A66AEB' : '#FFF',
+            borderRadius: 4,
+            marginRight: 12,
+          }}
+        />
+        <Text style={styles.title}>{title}</Text>
+        <View
+          style={[
+            globalStyles.ml12,
+            styles.status,
+            {backgroundColor: statusColor[status]},
+          ]}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 

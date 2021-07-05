@@ -24,7 +24,7 @@ const Login = ({params}) => {
       scroll
       showHeader
       contentContainerStyle={[globalStyles.p0, {paddingBottom: 16}]}
-      style={{marginTop: -60}}
+      style={{marginTop: -80}}
       headerProps={{headerStyle: styles.headerStyle}}>
       <View style={styles.backgroundContainer}>
         <Image

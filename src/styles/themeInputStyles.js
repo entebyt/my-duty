@@ -4,7 +4,10 @@ export default StyleSheet.create({
   inputLabel: {
     color: colors.secondary,
   },
-  label: {color: colors.textprimary, marginLeft: 20},
+  label: {
+    color: colors.textprimary,
+    marginLeft: 20,
+  },
   primaryInputStyle: {
     borderLeftColor: colors.inputBorder,
     borderLeftWidth: 8,

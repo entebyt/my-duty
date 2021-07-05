@@ -51,13 +51,12 @@ export default Header;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    paddingVertical: 16,
     paddingHorizontal: 24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.white,
     zIndex: 2,
-    height: 60,
+    height: 80,
   },
 });

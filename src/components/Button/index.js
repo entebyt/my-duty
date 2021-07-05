@@ -20,6 +20,7 @@ const Button = ({
 }) => (
   <TouchableOpacity
     {...rest}
+    activeOpacity={0.7}
     style={[customButtonContainer, {backgroundColor: color, ...rest.style}]}>
     {loading ? (
       <ActivityIndicator color={color} />

@@ -21,6 +21,15 @@ import Sidebar from '../components/Sidebar';
 import Profile from '../screens/Profile';
 import EditProfile from '../screens/EditProfile';
 import Feedbacks from '../screens/Feedbacks';
+import Settings from '../screens/Settings';
+import ChangePassword from '../screens/ChangePassword';
+import BlockedPost from '../screens/BlockedPost';
+import BlockedUser from '../screens/BlockedUser';
+import ReplyFeedback from '../screens/ReplyFeedback';
+import PrivacyPolicy from '../screens/PrivacyPolicy';
+import TC from '../screens/TC';
+import About from '../screens/About';
+// import Charity from '../screens/Charity';
 const {Navigator, Screen} = createStackNavigator();
 const MainNavigation: React.SFC<> = () => {
   const {state, dispatch} = React.useContext(Context);
@@ -48,11 +57,22 @@ const MainNavigation: React.SFC<> = () => {
           <Screen name="Sidebar" component={Sidebar} />
           <Screen name="Profile" component={Profile} />
           <Screen name="EditProfile" component={EditProfile} />
+          <Screen name="Settings" component={Settings} />
+          {/* <Screen name="Charity" component={Charity} /> */}
           <Screen name="Feedbacks" component={Feedbacks} />
+          <Screen name="Reply Feedback" component={ReplyFeedback} />
+          <Screen name="Blocked Post" component={BlockedPost} />
+          <Screen name="Blocked User" component={BlockedUser} />
           <Screen name="UpdatePassword" component={UpdatePassword} />
+          <Screen name="Change Password" component={ChangePassword} />
           <Screen name="Notification" component={Notifications} />
           <Screen name="Filters" component={Filters} />
           <Screen name="Search" component={Search} />
+          {/*  */}
+
+          <Screen name="About" component={About} />
+          <Screen name="TC" component={TC} />
+          <Screen name="Privacy Policy" component={PrivacyPolicy} />
         </Navigator>
       </NavigationContainer>
     </>

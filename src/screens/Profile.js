@@ -145,7 +145,7 @@ const Profile = ({navigation, route}) => {
       />
       {myProfile && (
         <TouchableOpacity onPress={deleteAccount}>
-          <View style={[globalStyles.row, globalStyles.justifyEnd]}>
+          <View style={[globalStyles.row, globalStyles.justifyCenter]}>
             <Text style={styles.deleteAccount}>Delete Account</Text>
           </View>
         </TouchableOpacity>
@@ -155,8 +155,10 @@ const Profile = ({navigation, route}) => {
 };
 
 const HeaderRight = ({toggleButton}) => (
-  <TouchableOpacity style={[globalStyles.px8]} onPress={toggleButton}>
-    <More />
+  <TouchableOpacity
+    style={[globalStyles.px8, globalStyles.py10]}
+    onPress={toggleButton}>
+    <More height={4} width={16} />
   </TouchableOpacity>
 );
 

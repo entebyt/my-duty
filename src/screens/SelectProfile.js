@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
 
-    marginBottom: -60,
+    marginBottom: -80,
   },
 });
 export default SelectProfile;

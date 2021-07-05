@@ -8,6 +8,7 @@ import colors from '../constants/colors';
 const Input = ({
   customInputStyle = '',
   customlabelStyle = '',
+  customLabel,
   customErrorStyle = '',
   customContainerStyle = '',
   focusColors = '',
@@ -58,18 +59,27 @@ const Input = ({
           ? customContainerStyle
           : defaultStyles.containerStyle
       }>
-      {showLabel && (
-        <Text
-          style={
-            customlabelStyle ? customlabelStyle : defaultStyles.labelStyle
-          }>
-          {label}
-        </Text>
-      )}
+      {showLabel ? (
+        customLabel ? (
+          label
+        ) : (
+          <Text
+            style={
+              customlabelStyle ? customlabelStyle : defaultStyles.labelStyle
+            }>
+            {label}
+          </Text>
+        )
+      ) : null}
       <View
         style={customInputStyle ? customInputStyle : defaultStyles.inputStyle}>
         {Icon && <Icon height="24" />}
-        <TextInput onBlur={onBlur} onFocus={onFocus} {...rest} />
+        <TextInput
+          onBlur={onBlur}
+          onFocus={onFocus}
+          {...rest}
+          style={[{color: colors.textprimary}, rest.style]}
+        />
       </View>
       {showErrorMessage && required && (
         <Text style={defaultStyles.errorStyle}>{errorMessage}</Text>

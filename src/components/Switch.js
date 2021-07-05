@@ -12,9 +12,9 @@ const ThemeSwitch = () => {
       barHeight={24}
       circleBorderWidth={0}
       backgroundActive={'#B6A4CE'}
-      backgroundInactive={'#B6A4CE'}
+      backgroundInactive={'#FFF'}
       circleActiveColor={'#FFF'}
-      circleInActiveColor={'#FFF'}
+      circleInActiveColor={'#B6A4CE'}
       changeValueImmediately={true}
       changeValueImmediately={true} // if rendering inside circle, change state immediately or wait for animation to complete
       innerCircleStyle={{alignItems: 'center', justifyContent: 'center'}} // style for inner animated circle for what you (may) be rendering inside the circle

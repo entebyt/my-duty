@@ -21,15 +21,15 @@ const Button = ({
   colors = ['#9E81BE', '#B6A4CE', '#B9ABD2'],
   ...rest
 }) => (
-  <LinearGradient
-    colors={colors}
-    style={[
-      customButtonContainer,
-      {
-        ...rest.style,
-      },
-    ]}>
-    <TouchableOpacity {...rest} style={{}}>
+  <TouchableOpacity activeOpacity={0.7} {...rest} style={{}}>
+    <LinearGradient
+      colors={colors}
+      style={[
+        customButtonContainer,
+        {
+          ...rest.style,
+        },
+      ]}>
       {loading ? (
         <ActivityIndicator color={color} />
       ) : (
@@ -45,8 +45,8 @@ const Button = ({
           {showIcon && <View>{Icon ? <Icon /> : <ArrowRight />}</View>}
         </View>
       )}
-    </TouchableOpacity>
-  </LinearGradient>
+    </LinearGradient>
+  </TouchableOpacity>
 );
 const styles = StyleSheet.create({
   buttonContainer: {

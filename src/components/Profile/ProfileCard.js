@@ -45,6 +45,7 @@ const ProfileCard = ({
         <View
           style={[
             globalStyles.row,
+            !type && globalStyles.flex1,
             type === 'FEEDBACK' || (type === 'OTHERPRO' && globalStyles.flex1),
           ]}>
           {type === 'MYPRO' && (
@@ -102,7 +103,7 @@ const ProfileCard = ({
           {type === 'FEEDBACK' && (
             <TouchableOpacity
               onPress={() => setShowOptions(!showOptions)}
-              style={[globalStyles.ml8, globalStyles.mt4]}>
+              style={[globalStyles.pl8, globalStyles.pt4]}>
               <MoreVerticalIcon />
             </TouchableOpacity>
           )}
@@ -177,29 +178,31 @@ const ProfileCard = ({
             </Text>
           </View>
         </View>
-        <View style={{width: 275}}>
-          <Text
-            style={[
-              globalStyles.mt24,
-              globalStyles.textCenter,
-              globalStyles.ml20,
-              globalStyles.font13,
-              {
-                color:
-                  selectedProfile === 'Helper'
-                    ? 'rgba(255, 255, 255, 0.6)'
-                    : 'rgba(34, 33, 91, 0.6)',
-              },
-            ]}>
-            {about}
-          </Text>
-        </View>
+        {about ? (
+          <View style={{width: 275}}>
+            <Text
+              style={[
+                globalStyles.mt24,
+                globalStyles.textCenter,
+                globalStyles.ml20,
+                globalStyles.font13,
+                {
+                  color:
+                    selectedProfile === 'Helper'
+                      ? 'rgba(255, 255, 255, 0.6)'
+                      : 'rgba(34, 33, 91, 0.6)',
+                },
+              ]}>
+              {about}
+            </Text>
+          </View>
+        ) : null}
       </View>
     </View>
   );
 };
 
-const Option = ({title, index, onPress}) => (
+export const Option = ({title, index, onPress}) => (
   <TouchableOpacity onPress={onPress} style={[index !== 0 && globalStyles.mt8]}>
     <Text style={styles.optionTitle}>{title}</Text>
   </TouchableOpacity>

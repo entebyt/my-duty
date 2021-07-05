@@ -8,7 +8,7 @@ const Location = ({navigation}) => {
   return (
     <Container
       showHeader
-      style={[globalStyles.p0, {marginTop: -60}]}
+      style={[globalStyles.p0, {marginTop: -80}]}
       headerProps={{headerStyle: styles.headerStyle}}>
       <View style={styles.backgroundContainer}>
         <Image
