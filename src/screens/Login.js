@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../components/Button/ThemeButton';

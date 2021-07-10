@@ -24,10 +24,13 @@
         "react-native-screens": "^2.15.2",
         "react-native-svg": "^12.1.1",
         "react-native-svg-transformer": "^0.14.3",
+<<<<<<< HEAD
         "react-native-switch": "^2.0.0"
+=======
         "react-redux": "^7.2.4",
         "redux": "^4.1.0",
         "redux-thunk": "^2.3.0"
+>>>>>>> f9e231b (my_duty_redux)
       },
       "devDependencies": {
         "@babel/core": "^7.8.4",
