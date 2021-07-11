@@ -26,7 +26,10 @@
     "react-native-screens": "^2.15.2",
     "react-native-svg": "^12.1.1",
     "react-native-svg-transformer": "^0.14.3",
+<<<<<<< HEAD
     "react-native-switch": "^2.0.0"
+=======
+>>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0"
