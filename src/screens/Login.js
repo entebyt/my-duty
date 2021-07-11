@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -11,15 +11,45 @@ import themeInputStyles from '../styles/themeInputStyles';
 import EmailIcon from '../assets/icons/email.svg';
 import PasswordIcon from '../assets/icons/password.svg';
 import SocialIcons from '../components/SocialIcons';
+import { loginUser } from '../actions/auth';
 import {
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native-gesture-handler';
-const Login = ({params}) => {
+  const Login = ({ params }) => {
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
   const navigation = useNavigation();
+  const dispatch = useDispatch()
+  const { loginData } = useSelector(state => state.auth);
+  console.log("login api call" , loginData)
   const loginSubmit = () => {
-    navigation.navigate('Location');
-  };
+    
+    if (email === "" && password === "") {
+      alert('Email and password cannot be empty')
+      return;
+    } else if (email === "") {
+      alert('Please enter Email')
+      return;
+    } else if (password === "") {
+      alert('please enter  password')
+      return;
+    }
+    dispatch(loginUser(email, phone, password))
+    
+      .then(isAuthenticated => {
+        if (isAuthenticated) {
+          navigation.navigate('Location');
+        }
+      })
+  }
+  const onChangeEmailText = (val) => {
+    setEmail(val)
+  }
+  const onChangePasswordText = (val) => {
+    setPassword(val)
+  }
   return (
     <Container
       scroll
@@ -59,6 +89,7 @@ const Login = ({params}) => {
           customlabelStyle={themeInputStyles.inputLabel}
           showLabel
           style={[globalStyles.ml16, globalStyles.flex1]}
+          onChangeText = {(e) => onChangeEmailText(e)}
         />
         <View style={globalStyles.mt40}>
           <Input
@@ -68,6 +99,7 @@ const Login = ({params}) => {
             customlabelStyle={themeInputStyles.inputLabel}
             showLabel
             style={[globalStyles.ml16, globalStyles.flex1]}
+            onChangeText = {(e) => onChangePasswordText(e)}
           />
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>

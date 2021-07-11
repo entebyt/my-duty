@@ -2,6 +2,9 @@ import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
+  CREATE_USER_REQUEST,
+  CREATE_USER_SUCCESS,
+  CREATE_USER_FAILURE
 } from "../actions/auth";
   
 export default (
@@ -9,7 +12,8 @@ export default (
       isLoggingIn: false,
       loginError: false,
       isAuthenticated: false,
-      user: {}
+      loginData: {},
+      userData: {}
     },
     action
   ) => {
@@ -25,7 +29,7 @@ export default (
           ...state,
           isLoggingIn: false,
           isAuthenticated: true,
-          user: action.user
+          loginData: action.loginData
         };
       case LOGIN_FAILURE:
         return {
@@ -34,6 +38,27 @@ export default (
           isAuthenticated: false,
           loginError: true
         };
+
+        case CREATE_USER_REQUEST:
+        return {
+          ...state,
+          isLoggingIn: true,
+          loginError: false
+        };
+      case CREATE_USER_SUCCESS:
+        return {
+          ...state,
+          isLoggingIn: false,
+          isAuthenticated: true,
+          userData: action.userData
+        };
+      case CREATE_USER_FAILURE:
+        return {
+          ...state,
+          isLoggingIn: false,
+          isAuthenticated: false,
+          loginError: true
+          }
       default:
         return state;
     }
