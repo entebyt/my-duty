@@ -47,6 +47,7 @@ import {
   const onChangeEmailText = (val) => {
     setEmail(val)
   }
+
   const onChangePasswordText = (val) => {
     setPassword(val)
   }

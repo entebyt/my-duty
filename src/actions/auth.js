@@ -48,11 +48,12 @@ export const loginUser = (email, phone, password) => async dispatch => {
     dispatch(requestLogin())
     const response = await signUserIn(email, phone, password)
   
-    if (response) {
-      if (response) {
-        dispatch(receiveLogin(response))
+  if (response) {   
+      if (response.data.status === 1 ) {
+        dispatch(receiveLogin(response.data))
         return true
       } else {
+          alert(response.data.message)
         dispatch(loginError())
         return false
       }
@@ -67,10 +68,11 @@ export const userCreate = (email, phone, password) => async dispatch => {
   const response = await createUser(email, phone, password)
 
   if (response) {
-    if (response) {
-      dispatch(receiveCreateUser(response))
+    if (response.data.status == 1) {
+      dispatch(receiveCreateUser(response.data))
       return true
     } else {
+        alert(response.data.message)
       dispatch(createUserError())
       return false
     }
