@@ -9,7 +9,6 @@
       "version": "0.0.1",
       "dependencies": {
         "@react-native-community/clipboard": "^1.5.1",
-        "@react-native-community/datetimepicker": "^3.5.2",
         "@react-native-community/masked-view": "^0.1.10",
         "@react-navigation/drawer": "^5.12.4",
         "@react-navigation/native": "^5.9.0",
@@ -24,10 +23,6 @@
         "react-native-screens": "^2.15.2",
         "react-native-svg": "^12.1.1",
         "react-native-svg-transformer": "^0.14.3",
-<<<<<<< HEAD
-        "react-native-switch": "^2.0.0"
-=======
->>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
         "react-redux": "^7.2.4",
         "redux": "^4.1.0",
         "redux-thunk": "^2.3.0"
@@ -2515,14 +2510,6 @@
       "peerDependencies": {
         "react": ">=16.0",
         "react-native": ">=0.57.0"
-      }
-    },
-    "node_modules/@react-native-community/datetimepicker": {
-      "version": "3.5.2",
-      "resolved": "https://registry.npmjs.org/@react-native-community/datetimepicker/-/datetimepicker-3.5.2.tgz",
-      "integrity": "sha512-TWRuAtr/DnrEcRewqvXMLea2oB+YF+SbtuYLHguALLxNJQLl/RFB7aTNZeF+OoH75zKFqtXECXV1/uxQUpA+sg==",
-      "dependencies": {
-        "invariant": "^2.2.4"
       }
     },
     "node_modules/@react-native-community/eslint-config": {
@@ -12197,17 +12184,6 @@
         "semver": "bin/semver"
       }
     },
-    "node_modules/react-native-switch": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/react-native-switch/-/react-native-switch-2.0.0.tgz",
-      "integrity": "sha512-Yy8GQBazGBz/VI/Xl2LkyO/4wElnt9hRQ+gY3j/7ZkdfIQftY6IAtvSpU2NEksezUxs4DgNAkcmeDfRO0t2wbg==",
-      "dependencies": {
-        "prop-types": "^15.6.0"
-      },
-      "peerDependencies": {
-        "react-native": ">=0.29"
-      }
-    },
     "node_modules/react-native/node_modules/@jest/types": {
       "version": "24.9.0",
       "resolved": "https://registry.npmjs.org/@jest/types/-/types-24.9.0.tgz",
@@ -17012,14 +16988,6 @@
       "resolved": "https://registry.npmjs.org/@react-native-community/clipboard/-/clipboard-1.5.1.tgz",
       "integrity": "sha512-AHAmrkLEH5UtPaDiRqoULERHh3oNv7Dgs0bTC0hO5Z2GdNokAMPT5w8ci8aMcRemcwbtdHjxChgtjbeA38GBdA==",
       "requires": {}
-    },
-    "@react-native-community/datetimepicker": {
-      "version": "3.5.2",
-      "resolved": "https://registry.npmjs.org/@react-native-community/datetimepicker/-/datetimepicker-3.5.2.tgz",
-      "integrity": "sha512-TWRuAtr/DnrEcRewqvXMLea2oB+YF+SbtuYLHguALLxNJQLl/RFB7aTNZeF+OoH75zKFqtXECXV1/uxQUpA+sg==",
-      "requires": {
-        "invariant": "^2.2.4"
-      }
     },
     "@react-native-community/eslint-config": {
       "version": "1.1.0",
@@ -24619,17 +24587,6 @@
         }
       }
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "react-native-switch": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/react-native-switch/-/react-native-switch-2.0.0.tgz",
-      "integrity": "sha512-Yy8GQBazGBz/VI/Xl2LkyO/4wElnt9hRQ+gY3j/7ZkdfIQftY6IAtvSpU2NEksezUxs4DgNAkcmeDfRO0t2wbg==",
-      "requires": {
-        "prop-types": "^15.6.0"
-=======
-=======
->>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
     "react-redux": {
       "version": "7.2.4",
       "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-7.2.4.tgz",
@@ -24641,10 +24598,6 @@
         "loose-envify": "^1.4.0",
         "prop-types": "^15.7.2",
         "react-is": "^16.13.1"
-<<<<<<< HEAD
->>>>>>> f9e231b (my_duty_redux)
-=======
->>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
       }
     },
     "react-refresh": {

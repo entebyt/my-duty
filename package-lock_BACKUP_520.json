@@ -27,10 +27,10 @@
 <<<<<<< HEAD
         "react-native-switch": "^2.0.0"
 =======
->>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
         "react-redux": "^7.2.4",
         "redux": "^4.1.0",
         "redux-thunk": "^2.3.0"
+>>>>>>> f9e231b (my_duty_redux)
       },
       "devDependencies": {
         "@babel/core": "^7.8.4",
@@ -24620,7 +24620,6 @@
       }
     },
 <<<<<<< HEAD
-<<<<<<< HEAD
     "react-native-switch": {
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/react-native-switch/-/react-native-switch-2.0.0.tgz",
@@ -24628,8 +24627,6 @@
       "requires": {
         "prop-types": "^15.6.0"
 =======
-=======
->>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
     "react-redux": {
       "version": "7.2.4",
       "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-7.2.4.tgz",
@@ -24641,10 +24638,7 @@
         "loose-envify": "^1.4.0",
         "prop-types": "^15.7.2",
         "react-is": "^16.13.1"
-<<<<<<< HEAD
 >>>>>>> f9e231b (my_duty_redux)
-=======
->>>>>>> 7ff7f0dec23133146e028435eb04c2b70d98c4cb
       }
     },
     "react-refresh": {

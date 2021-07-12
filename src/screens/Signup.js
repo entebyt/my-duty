@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {Text, View, StyleSheet, AppState, Image} from 'react-native';
 import Button from '../components/Button/ThemeButton';
 import {useNavigation} from '@react-navigation/core';
@@ -14,12 +15,45 @@ import TermsCondition from '../assets/icons/terms_condition.svg';
 import useScreenDimensions from '../components/Hooks/useScreenDimensions';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import CheckBox from '../components/Checkbox';
-const Signup = ({params}) => {
-  const navigation = useNavigation();
-  const signupSubmit = () => {
-    navigation.navigate('Select Profile');
-  };
+import { userCreate } from '../actions/auth';
+
+  const Signup = ({ params }) => {
   const {width} = useScreenDimensions('screen');
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+  const navigation = useNavigation();
+  const dispatch = useDispatch()
+  const { userData } = useSelector(state => state.auth);
+  console.log("create user api call" , userData)
+  const signupSubmit = () => {
+    //validation
+    if(email === "" && password === "") {
+      alert('Email and password cannot be empty')
+      return;
+    } else if (email === "") {
+      alert('Please enter Email')
+      return;
+    } else if (password === "") {
+      alert('Please Enter Password')
+      return;
+    }
+
+    dispatch(userCreate(email, phone, password))
+      .then(isAuthenticated => {
+        if (isAuthenticated) {
+          navigation.navigate('Select Profile');
+        }
+       
+    })
+  };
+  const onChangeEmailText = (val) => {
+    setEmail(val)
+  }
+  const onChangePasswordText = (val) => {
+    setPassword(val)
+  }
+  
   return (
     <Container
       showHeader
@@ -50,6 +84,7 @@ const Signup = ({params}) => {
             label="Email/Mobile Number"
             style={[globalStyles.ml16, globalStyles.flex1]}
             showLabel
+            onChangeText = {(e) => onChangeEmailText(e)}
           />
           <View style={globalStyles.mt40}>
             <Input
@@ -59,6 +94,7 @@ const Signup = ({params}) => {
               label="Create Password"
               showLabel
               style={[globalStyles.ml16, globalStyles.flex1]}
+              onChangeText = {(e) => onChangePasswordText(e)}
             />
           </View>
           <View
