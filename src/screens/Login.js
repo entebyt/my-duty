@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, ImageBackground} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../components/Button/ThemeButton';
 import Container from '../components/Container';
@@ -27,10 +27,11 @@ const Login = ({params}) => {
       style={{marginTop: -80}}
       headerProps={{headerStyle: styles.headerStyle}}>
       <View style={styles.backgroundContainer}>
-        <Image
+        <ImageBackground
           style={styles.background}
-          source={require('../assets/images/login.png')}
-        />
+          source={require('../assets/images/login.png')}>
+          <Text style={styles.title}>Application Name</Text>
+        </ImageBackground>
         <View
           style={[
             globalStyles.selfCenter,
@@ -104,6 +105,13 @@ const styles = StyleSheet.create({
   backgroundContainer: {
     height: 380,
     justifyContent: 'flex-end',
+  },
+  title: {
+    fontSize: 28,
+    marginTop: 120,
+    marginLeft: 50,
+    width: '50%',
+    color: colors.white,
   },
 });
 export default Login;
