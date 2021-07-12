@@ -3,10 +3,9 @@ import MainNavigation from './navigation/mainNavigation';
 import {View} from 'react-native';
 import {Context, reducer, initialState} from './utils/store';
 import configureStore from './configureStore';
-import { Provider } from 'react-redux'
-import configureStore  from './configureStore'
+import {Provider} from 'react-redux';
 
-const store = configureStore()
+const store = configureStore();
 const App = () => {
   const [showSplash, setShowSplash] = React.useState(true);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -18,12 +17,11 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <Context.Provider value={{ state, dispatch }}>
+        <Context.Provider value={{state, dispatch}}>
           {showSplash ? <View /> : <MainNavigation />}
         </Context.Provider>
       </Provider>
-
     </>
   );
-}
+};
 export default App;
