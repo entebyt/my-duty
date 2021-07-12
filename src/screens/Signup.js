@@ -69,7 +69,8 @@ const Signup = ({params}) => {
             ]}>
             <View>
               <CheckBox
-                size={16}
+                size={24}
+                type
                 style={{backgroundColor: colors.gray}}
                 color={{checked: '#943993', blur: '#943993'}}
               />
