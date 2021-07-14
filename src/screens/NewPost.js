@@ -18,8 +18,20 @@ import useScreenDimensions from '../components/Hooks/useScreenDimensions';
 import {SectionHeader} from './FIlters';
 import ThemeCheckbox from '../components/Checkbox/ThemeCheckbox';
 import Button from '../components/Button/ThemeButton';
-const NewPost = ({navigation}) => {
+import FilterList from '../components/Filters/FilterList';
+const NewPost = ({navigation, route}) => {
   const {width} = useScreenDimensions('screen');
+  const edit = route.params?.edit;
+  const postData = !edit
+    ? {}
+    : {
+        title: 'Oxygen for Varya',
+        caption:
+          'To breathe and live at home, Vara urgently needs medical equipment.',
+        taggedPeople: [{label: '@Philip'}, {label: '@lilly'}],
+        hashTags: [{label: '#Childres'}],
+        location: [{label: 'Kolkata'}],
+      };
   return (
     <Container
       scroll
@@ -36,6 +48,11 @@ const NewPost = ({navigation}) => {
             size={50}
             fallback
           />
+          {edit && (
+            <View style={styles.badge}>
+              <Text style={[globalStyles.font18, {color: '#FFF'}]}>3</Text>
+            </View>
+          )}
         </View>
         <Input
           customInputStyle={{}}
@@ -46,6 +63,7 @@ const NewPost = ({navigation}) => {
             globalStyles.ml12,
             globalStyles.flex1,
           ]}
+          value={postData.caption}
           minHeight={80}
           placeholder="Write a caption..."
         />
@@ -68,14 +86,30 @@ const NewPost = ({navigation}) => {
         ]}
         customlabelStyle={themeInputStyles.label}
         label="Add Title"
+        value={postData.title}
       />
+      {edit && (
+        <View style={globalStyles.mt24}>
+          <FilterList selectedFilters={postData.taggedPeople} />
+        </View>
+      )}
       <Section
         style={globalStyles.mt20}
         title="Tag People"
         onPress={() => navigation.navigate('Tag People')}
         icon={ChevronRight}
       />
+      {edit && (
+        <View style={globalStyles.mt16}>
+          <FilterList selectedFilters={postData.hashTags} />
+        </View>
+      )}
       <Section style={globalStyles.mt30} title="Add Hashtag" />
+      {edit && (
+        <View style={globalStyles.mt16}>
+          <FilterList selectedFilters={postData.location} />
+        </View>
+      )}
       <Section
         style={globalStyles.mt30}
         icon={ChevronRight}
@@ -196,11 +230,23 @@ const NewPost = ({navigation}) => {
     </Container>
   );
 };
+
 const styles = StyleSheet.create({
   imageContainer: {
     backgroundColor: '#CACACA',
     height: 100,
     width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  badge: {
+    position: 'absolute',
+    bottom: -12,
+    right: -4,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: colors.textTertiary,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -76,7 +76,9 @@ const Post = ({
       },
     });
   };
-  const editPost = () => {};
+  const editPost = () => {
+    navigation.navigate('New Post', {edit: true});
+  };
   const changeStatus = () => {
     toggleModal(!visible);
   };

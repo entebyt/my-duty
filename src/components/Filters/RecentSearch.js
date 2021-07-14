@@ -14,7 +14,7 @@ const RecentSearch = ({onPress}) => {
   );
 };
 
-const Label = ({label, index, onPress}) => (
+export const Label = ({label, index, onPress}) => (
   <TouchableWithoutFeedback onPress={onPress}>
     <Text
       style={[
