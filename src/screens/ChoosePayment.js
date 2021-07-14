@@ -41,7 +41,7 @@ const ChoosePayment = ({navigation}) => (
         <Button
           onPress={() =>
             navigation.replace('Complete', {
-              displayText: 'You have paid sucessfully',
+              displayText: 'You have paid successfully',
               link: 'Chat',
             })
           }

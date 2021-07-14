@@ -7,7 +7,7 @@ import Button from '../components/Button/ThemeButton';
 const Completed = ({navigation, route}) => {
   const displayText =
     route.params?.displayText ||
-    ' Your Profile is succesfully create! Browse the app fulfil your medical needs';
+    ' Your Profile is succesfully created! Browse the app fulfil your medical needs';
   const link = route.params?.link;
   const navigate = () => {
     navigation.replace(link || 'Location');
