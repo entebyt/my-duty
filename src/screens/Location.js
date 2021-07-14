@@ -18,7 +18,10 @@ const Location = ({navigation}) => {
       </View>
       <View style={[globalStyles.justifyCenter, globalStyles.flex1]}>
         <View style={globalStyles.alignCenter}>
-          <LocationIcon height={'160'} />
+          <Image
+            source={require('../assets/icons/location.png')}
+            height={'160'}
+          />
           <Text style={[globalStyles.label, globalStyles.mt40]}>
             Kindly Enable your Location
           </Text>

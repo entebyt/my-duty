@@ -29,7 +29,7 @@ const ForgetPassowrd = ({navigation}) => {
       <View style={[globalStyles.container, globalStyles.mt16]}>
         <View style={[globalStyles.alignCenter]}>
           <Text style={[globalStyles.text, globalStyles.textCenter]}>
-            You will received 4 digit code on the given Email/ Phone Number{' '}
+            You will receive 4 digit code on the given Email/ Phone Number{' '}
           </Text>
         </View>
         <View

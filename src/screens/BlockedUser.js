@@ -30,7 +30,6 @@ const BlockedUser = ({params}) => {
       headerProps={{titleType: 'title2', title: 'Blocked User'}}>
       <View style={[globalStyles.px30]}>
         <Input
-          onFocus={() => navigation.navigate('Search')}
           icon={SearchIcon}
           customInputStyle={themeInputStyles.searchInputStyle}
           customContainerStyle={[globalStyles.flex1]}

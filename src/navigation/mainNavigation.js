@@ -29,7 +29,14 @@ import ReplyFeedback from '../screens/ReplyFeedback';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import TC from '../screens/TC';
 import About from '../screens/About';
-// import Charity from '../screens/Charity';
+import Chat from '../screens/Chat';
+import ChoosePayment from '../screens/ChoosePayment';
+import Messages from '../screens/Messages';
+import People from '../screens/People';
+import NewPost from '../screens/NewPost';
+import AddLocation from './AddLocation';
+import Comment from '../screens/Comment';
+import TagPeople from '../screens/TagPeople';
 const {Navigator, Screen} = createStackNavigator();
 const MainNavigation: React.SFC<> = () => {
   const {state, dispatch} = React.useContext(Context);
@@ -54,11 +61,17 @@ const MainNavigation: React.SFC<> = () => {
           <Screen name="ForgetPassword" component={ForgetPassowrd} />
           {/* After Auth Navigations */}
           <Screen name="Home" component={Home} />
+          <Screen name="Comment" component={Comment} />
+          <Screen name="New Post" component={NewPost} />
+          <Screen name="Add Location" component={AddLocation} />
+          <Screen name="Tag People" component={TagPeople} />
           <Screen name="Sidebar" component={Sidebar} />
           <Screen name="Profile" component={Profile} />
+          <Screen name="Messages" component={Messages} />
+          <Screen name="People" component={People} />
           <Screen name="EditProfile" component={EditProfile} />
           <Screen name="Settings" component={Settings} />
-          {/* <Screen name="Charity" component={Charity} /> */}
+          <Screen name="Chat" component={Chat} />
           <Screen name="Feedbacks" component={Feedbacks} />
           <Screen name="Reply Feedback" component={ReplyFeedback} />
           <Screen name="Blocked Post" component={BlockedPost} />
@@ -69,6 +82,7 @@ const MainNavigation: React.SFC<> = () => {
           <Screen name="Filters" component={Filters} />
           <Screen name="Search" component={Search} />
           {/*  */}
+          <Screen name="Choose Payment" component={ChoosePayment} />
 
           <Screen name="About" component={About} />
           <Screen name="TC" component={TC} />

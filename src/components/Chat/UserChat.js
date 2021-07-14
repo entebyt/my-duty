@@ -1,11 +1,23 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native-web';
+import {View, Text, StyleSheet} from 'react-native';
+import CircleImage from '../CircleImage';
+import globalStyles from '../../styles/globalStyles';
 const UserChat = ({userName, message, createdAt}) => {
   return (
-    <View style={styles.chatContainer}>
-      <Text style={styles.messageText}>{message}</Text>
-      <View style={styles.justifyBetween}>
-        <Text></Text>
+    <View>
+      <View style={[globalStyles.row, globalStyles.mt30]}>
+        <View style={styles.chatContainer}>
+          <Text style={styles.messageText}>{message}</Text>
+        </View>
+        <CircleImage
+          style={globalStyles.ml8}
+          uri={
+            'https://imgproxy.ra.co/_/plain//images/profiles/square/leeburridge.jpg'
+          }
+          size={50}
+        />
+      </View>
+      <View>
         <Text>{createdAt}</Text>
       </View>
     </View>
@@ -18,11 +30,10 @@ const styles = StyleSheet.create({
   },
   chatContainer: {
     padding: 15,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(236, 229, 236, 1)',
     marginBottom: 10,
-    maxWidth: '85%',
-    minWidth: '40%',
-    borderRadius: 8,
+    width: '80%',
+    borderRadius: 20,
+    marginRight: 16,
   },
-  justifyBetween: {flexDirection: 'row', justifyContent: 'space-between'},
 });

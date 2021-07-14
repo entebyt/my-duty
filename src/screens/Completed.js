@@ -10,20 +10,21 @@ const Completed = ({navigation, route}) => {
     ' Your Profile is succesfully create! Browse the app fulfil your medical needs';
   const link = route.params?.link;
   const navigate = () => {
-    navigation.navigate(link || 'Location');
+    navigation.replace(link || 'Location');
   };
+  const handler = route.params?.handler;
   return (
     <Container
       showHeader
       style={[globalStyles.container, {paddingHorizontal: 34}]}>
-      <View style={globalStyles.alignCenter}>
+      <View style={[globalStyles.alignCenter]}>
         <Text style={globalStyles.title}>Successfully Done</Text>
         <Image
           resizeMode="contain"
           style={[globalStyles.mt60, globalStyles.mb20, {height: 180}]}
           source={require('../assets/icons/check.png')}
         />
-        <View style={globalStyles.px20}>
+        <View style={[globalStyles.px20, {width: '100%'}]}>
           <Text
             style={[
               globalStyles.label,
@@ -34,7 +35,7 @@ const Completed = ({navigation, route}) => {
 
           <View
             style={[globalStyles.mt80, globalStyles.px20, globalStyles.pt40]}>
-            <Button onPress={navigate} title="Done" />
+            <Button onPress={handler ? handler : navigate} title="Done" />
           </View>
         </View>
       </View>

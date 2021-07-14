@@ -39,9 +39,8 @@ const Sidebar = ({navigation}) => {
     },
     {
       title: 'Charity',
-      onPress: () => navigate('Charity'),
+      onPress: () => {},
     },
-
     {
       title: 'Feedback',
       onPress: () => navigate('Feedbacks'),
@@ -64,7 +63,7 @@ const Sidebar = ({navigation}) => {
     },
     {
       title: 'Contact Admin',
-      onPress: () => navigate('Contact Admin'),
+      onPress: () => navigate('Chat', {support: true}),
     },
   ];
   return (
@@ -84,7 +83,8 @@ const Sidebar = ({navigation}) => {
                 Neelesh
               </Text>
               <Text style={styles.location}>Kolkata, India</Text>
-              <View
+              <TouchableWithoutFeedback
+                onPress={() => navigation.navigate('Messages')}
                 style={[
                   globalStyles.row,
                   globalStyles.alignCenter,
@@ -92,7 +92,7 @@ const Sidebar = ({navigation}) => {
                 ]}>
                 <MessageIcon />
                 <Text style={globalStyles.ml12}>Message</Text>
-              </View>
+              </TouchableWithoutFeedback>
             </View>
           </View>
         </View>

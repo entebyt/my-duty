@@ -1,7 +1,7 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Iconly/Light-Outline/Home">
 <g id="Home">
-<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="1" width="21" height="22">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="1" width="24" height="24">
 <path id="Clip 2" fill-rule="evenodd" clip-rule="evenodd" d="M2 1H22.4998V22.505H2V1Z" fill="white"/>
 </mask>
 <g mask="url(#mask0)">

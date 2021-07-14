@@ -60,6 +60,7 @@ export default StyleSheet.create({
   ml12: {marginLeft: 12},
 
   ml32: {marginLeft: 32},
+  ml36: {marginLeft: 38},
   ml16: {
     marginLeft: 16,
   },
@@ -85,6 +86,7 @@ export default StyleSheet.create({
   px30: {paddingHorizontal: 30},
   px40: {paddingHorizontal: 40},
   px60: {paddingHorizontal: 60},
+  pt0: {paddingTop: 0},
   pt4: {paddingTop: 4},
   pt8: {paddingTop: 8},
   pt14: {paddingTop: 14},
@@ -136,5 +138,6 @@ export default StyleSheet.create({
   font15: {fontSize: 15},
   font16: {fontSize: 16},
   font18: {fontSize: 18},
+  font20: {fontSize: 20},
   listBottom: {paddingBottom: 100},
 });

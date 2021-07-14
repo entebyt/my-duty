@@ -2,20 +2,15 @@
 `  Github - https://github.com/entebyt/
 */
 import * as React from 'react';
-import {View, Text, StyleSheet, Modal} from 'react-native';
-const BottomModal = ({visible, toggleModal, children}) => {
+import {View, Text, StyleSheet, Modal, Pressable} from 'react-native';
+import colors from '../../constants/colors';
+import globalStyles from '../../styles/globalStyles';
+const BottomModal = ({visible, toggleModal, children, contentStyle}) => {
   return (
     <Modal animationType="slide" transparent={true} visible={visible}>
       <View style={styles.modalContainer}>
-        <View style={styles.modalContentContainer}>
-          <View style={styles.modalCloseIconContainer}>
-            <Icon
-              onPress={() => toggleModal(false)}
-              style={{fontSize: 20}}
-              name="close"
-              type="AntDesign"
-            />
-          </View>
+        <Pressable onPress={toggleModal} style={globalStyles.flex1} />
+        <View style={[styles.modalContentContainer, contentStyle]}>
           {children}
         </View>
       </View>
@@ -27,11 +22,12 @@ const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
   modalContentContainer: {
     padding: 20,
     backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: colors.textTertiary,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },

@@ -18,7 +18,7 @@ const Search = ({navigation}) => {
   const [searchType, setsearchType] = React.useState('Post');
   const [query, setQuery] = React.useState('');
   const [activeFilters, setActiveFilters] = React.useState([
-    {label: 'High Alert'},
+    {label: 'High Alert', onPress: () => setShowResults(true)},
   ]);
   const [listData, setListData] = React.useState([
     {
@@ -90,7 +90,12 @@ const Search = ({navigation}) => {
           <View style={[globalStyles.px24, globalStyles.mt20]}>
             <FilterList selectedFilters={activeFilters} />
           </View>
-          <List data={listData} listItem={searchListItem[searchType]} />
+          <List
+            block
+            data={listData}
+            navigation={navigation}
+            listItem={searchListItem[searchType]}
+          />
         </>
       ) : (
         <View style={[{minHeight: height}]}>

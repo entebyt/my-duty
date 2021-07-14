@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import themeButtonStyles from '../styles/themeButtonStyles';
 import colors from '../constants/colors';
 import {useNavigation} from '@react-navigation/native';
+import globalStyles from '../styles/globalStyles';
 const Connect = ({}) => {
   const navigation = useNavigation();
   const navigateTo = (route: string) => navigation.navigate(route);
@@ -11,7 +12,10 @@ const Connect = ({}) => {
     <ImageBackground
       style={styles.container}
       source={require('../assets/images/connect.png')}>
-      <Text style={styles.title}>Application Name</Text>
+      <View style={{width: '50%'}}>
+        <View style={[styles.iconContainer, globalStyles.shadow]}></View>
+        <Text style={styles.title}>Application Name</Text>
+      </View>
       <View>
         <Button
           customButtonContainer={[
@@ -48,7 +52,15 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 40,
     paddingVertical: 80,
+    paddingTop: 40,
     justifyContent: 'space-between',
+  },
+  iconContainer: {
+    height: 56,
+    width: 56,
+    borderRadius: 8,
+    marginBottom: 40,
+    backgroundColor: colors.white,
   },
   loginButton: {borderWidth: 2, borderColor: colors.white},
   title: {fontSize: 28, color: colors.white},

@@ -5,6 +5,7 @@ import React, {useEffect} from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import CheckMarkIcon from '../../assets/icons/checkmark.svg';
 import CheckMarkIcon2 from '../../assets/icons/checkmark_2.svg';
+import CheckMarkIcon3 from '../../assets/icons/checkmark_3.svg';
 const CheckBox = ({
   customContainer = styles.container,
   onPress,
@@ -36,19 +37,29 @@ const CheckBox = ({
       }}
       {...rest}>
       {isChecked ? (
-        type ? (
-          <CheckMarkIcon2
-            height={size - 10}
-            width={size - 10}
-            fill={color.checked}
-          />
-        ) : (
-          <CheckMarkIcon
-            height={size - 10}
-            width={size - 10}
-            fill={color.checked}
-          />
-        )
+        <>
+          {type && (
+            <CheckMarkIcon2
+              height={size - 10}
+              width={size - 10}
+              fill={color.checked}
+            />
+          )}
+          {!type && (
+            <CheckMarkIcon
+              height={size - 10}
+              width={size - 10}
+              fill={color.checked}
+            />
+          )}
+          {/* {type === 3 && (
+            <CheckMarkIcon3
+              height={size - 10}
+              width={size - 10}
+              fill={color.checked}
+            />
+          )} */}
+        </>
       ) : (
         <View style={{height: size, width: size}} />
       )}

@@ -13,6 +13,7 @@ import ThemeSwitch from '../Switch';
 import colors from '../../constants/colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import List from '../List';
+import {useNavigation} from '@react-navigation/core';
 const ProfileCard = ({
   label,
   type,
@@ -24,6 +25,7 @@ const ProfileCard = ({
   options,
 }) => {
   const [showOptions, setShowOptions] = React.useState(false);
+  const navigation = useNavigation();
   return (
     <View
       style={[
@@ -75,13 +77,13 @@ const ProfileCard = ({
             </View>
           )}
           {type === 'OTHERPRO' && (
-            <View>
+            <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
               {selectedProfile === 'Helper' ? (
                 <ChatIconWhite height={24} />
               ) : (
                 <ChatIcon height={24} />
               )}
-            </View>
+            </TouchableOpacity>
           )}
         </View>
 

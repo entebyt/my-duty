@@ -3,12 +3,9 @@ import {Text, View, StyleSheet} from 'react-native';
 import CheckBox from './index.js';
 import globalStyles from '../../styles/globalStyles';
 import colors from '../../constants/colors';
-import {
-  TouchableWithoutFeedback,
-  TouchableHighlight,
-} from 'react-native-gesture-handler';
+import {TouchableWithoutFeedback} from 'react-native';
 
-const ThemeCheckbox = ({title, onChecked, status}) => {
+const ThemeCheckbox = ({title, onChecked, status, style}) => {
   const [state, checkboxState] = React.useState(false);
   const defaultOnPress = isChecked => {
     onChecked ? onChecked(isChecked) : null;
@@ -26,6 +23,7 @@ const ThemeCheckbox = ({title, onChecked, status}) => {
           styles.container,
           globalStyles.px24,
           {backgroundColor: state ? '#EFE0FF' : '#FFF'},
+          style,
         ]}>
         <CheckBox
           // onPress={defaultOnPress}

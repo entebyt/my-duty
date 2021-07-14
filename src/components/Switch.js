@@ -15,6 +15,7 @@ const ThemeSwitch = () => {
       backgroundInactive={'#FFF'}
       circleActiveColor={'#FFF'}
       circleInActiveColor={'#B6A4CE'}
+      containerStyle={{borderWidth: 1, borderColor: '#B6A4CE'}}
       changeValueImmediately={true}
       changeValueImmediately={true} // if rendering inside circle, change state immediately or wait for animation to complete
       innerCircleStyle={{alignItems: 'center', justifyContent: 'center'}} // style for inner animated circle for what you (may) be rendering inside the circle

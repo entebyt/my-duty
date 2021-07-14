@@ -5,22 +5,34 @@ import ReportIcon from '../../assets/icons/report.svg';
 import ShareIcon from '../../assets/icons/share.svg';
 import HandIcon from '../../assets/icons/hand.svg';
 import ChatIcon from '../../assets/icons/comment.svg';
-const Actions = ({reportPost}) => (
-  <View
-    style={[
-      styles.actionContainer,
-      globalStyles.row,
-      globalStyles.spaceBetween,
-      globalStyles.alignEnd,
-    ]}>
-    <View style={[globalStyles.row, globalStyles.alignEnd]}>
-      <ActionEach style={globalStyles.ml0} icon={HandIcon} title="Raise Hand" />
-      <ActionEach icon={ChatIcon} title="Comment" />
-      <ActionEach icon={ShareIcon} title="Share" />
+import {useNavigation} from '@react-navigation/core';
+const Actions = ({reportPost, myPost}) => {
+  const navigation = useNavigation();
+  return (
+    <View
+      style={[
+        styles.actionContainer,
+        globalStyles.row,
+        globalStyles.spaceBetween,
+        globalStyles.alignEnd,
+      ]}>
+      <View style={[globalStyles.row, globalStyles.alignEnd]}>
+        <ActionEach
+          style={globalStyles.ml0}
+          icon={HandIcon}
+          title="Raise Hand"
+        />
+        <ActionEach
+          click={() => navigation.navigate('Comment', {myPost})}
+          icon={ChatIcon}
+          title="Comment"
+        />
+        <ActionEach icon={ShareIcon} title="Share" />
+      </View>
+      <ActionEach click={reportPost} icon={ReportIcon} title="Report" />
     </View>
-    <ActionEach click={reportPost} icon={ReportIcon} title="Report" />
-  </View>
-);
+  );
+};
 
 export default Actions;
 

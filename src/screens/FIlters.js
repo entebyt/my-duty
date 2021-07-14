@@ -157,6 +157,7 @@ const Filters = ({navigation}) => {
             <FilterList />
           </View>
           <List
+            block
             type="flat"
             listItem={Post}
             navigation={navigation}

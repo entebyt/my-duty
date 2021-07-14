@@ -31,7 +31,7 @@ const OtpScreen = ({navigation, route}) => {
         />
 
         <Text style={globalStyles.text}>Enter Valid OTP Number ! </Text>
-        <Text style={globalStyles.text}>You will received 4 digit code </Text>
+        <Text style={globalStyles.text}>You will receive 4 digit code </Text>
       </View>
       <View
         style={[globalStyles.row, globalStyles.selfCenter, globalStyles.my24]}>

@@ -1,22 +1,20 @@
 import React from 'react';
-import {Text, View, StyleSheet, ImageBackground, Modal} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Container from '../components/Container';
 import globalStyles from '../styles/globalStyles';
 import colors from '../constants/colors';
 import Menu from '../assets/icons/menu.svg';
-import Filter from '../assets/icons/filter.svg';
 import Input from '../components/Input';
-import themeInputStyles from '../styles/themeInputStyles';
+
+import Filter from '../assets/icons/filter.svg';
 import SearchIcon from '../assets/icons/search_icon.svg';
 import Post from '../components/Post';
-import List from '../components/List';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-const Home = ({navigation}) => {
+import themeInputStyles from '../styles/themeInputStyles';
+import ChatInputPanel from '../components/Chat/ChatInput';
+const Comment = ({navigation, route}) => {
+  const myPost = route.params?.myPost;
   return (
-    <Container
-      showFooter
-      scroll
-      contentContainerStyle={{padding: 0, paddingTop: 20}}>
+    <Container scroll contentContainerStyle={{padding: 0, paddingTop: 20}}>
       <View style={globalStyles.px20}>
         <View
           style={[
@@ -73,16 +71,18 @@ const Home = ({navigation}) => {
           </Text>
         </View>
       </View>
-      <List
-        type="flat"
-        listItem={Post}
-        block
-        contentContainerStyle={globalStyles.listBottom}
+      <Post
+        showAction={false}
+        myPost={myPost}
+        detailsPage
         navigation={navigation}
-        data={[
-          {},
-          {myPost: true, otherData: {type: 'Helper', profileType: true}},
-        ]}
+      />
+      <ChatInputPanel
+        position={'relative'}
+        comment
+        userImage={
+          'https://imgproxy.ra.co/_/plain//images/profiles/square/leeburridge.jpg'
+        }
       />
     </Container>
   );
@@ -98,4 +98,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default Home;
+export default Comment;

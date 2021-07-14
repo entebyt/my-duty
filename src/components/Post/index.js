@@ -10,15 +10,24 @@ import CircleImage from '../CircleImage';
 import List from '../List';
 import themeButtonStyles from '../../styles/themeButtonStyles';
 import {Context} from '../../utils/store';
+import ChangeStatusModal from './ChangeStatusModal';
+import {Bar} from 'react-native-progress';
+import useScreenDimensions from '../Hooks/useScreenDimensions';
+import Comments from './Comments';
 const Post = ({
   navigation,
   postTitle = 'Oxygen for Varya',
   showAction = true,
+  detailsPage,
   otherData,
+  myPost,
   block,
 }) => {
   const {dispatch} = React.useContext(Context);
   const [showButton, setShowButton] = React.useState(false);
+  const [visible, toggleModal] = React.useState(false);
+
+  const {width} = useScreenDimensions('screen');
   const blockPost = () => {
     dispatch({
       type: 'modalState',
@@ -58,8 +67,28 @@ const Post = ({
     });
   };
 
+  const deletePost = () => {
+    dispatch({
+      type: 'modalState',
+      modalState: {
+        title: 'Are you sure you want to delete this post from your profile?',
+        visible: true,
+      },
+    });
+  };
+  const editPost = () => {};
+  const changeStatus = () => {
+    toggleModal(!visible);
+  };
+  const myPostOptions = [
+    {title: 'Edit', onPress: editPost},
+    {title: 'Delete', onPress: deletePost},
+    {title: 'Status', onPress: changeStatus},
+  ];
+
   return (
     <View>
+      <ChangeStatusModal visible={visible} toggleModal={toggleModal} />
       <View style={globalStyles.px8}>
         <UserProfileBasicInfo
           otherData={otherData}
@@ -67,7 +96,8 @@ const Post = ({
           navigation={navigation}
           showStatus
           status="Active"
-          action={() => setShowButton(!showButton)}
+          options={myPost ? myPostOptions : []}
+          action={myPost ? null : () => setShowButton(!showButton)}
           userData={{name: 'Pieroborgo', about: 'Florence, Italy'}}
         />
         <View>
@@ -114,7 +144,42 @@ const Post = ({
           <Text style={[globalStyles.mt8, {color: '#6D7E92', lineHeight: 20}]}>
             To breathe and live at home, Vara urgently needs medical equipment.
           </Text>
-          <Actions reportPost={reportPost} />
+          {myPost && detailsPage && (
+            <View>
+              <View
+                style={[
+                  globalStyles.row,
+                  globalStyles.spaceBetween,
+                  globalStyles.mt16,
+                ]}>
+                <Text
+                  style={[
+                    globalStyles.font16,
+                    globalStyles.bold,
+                    {color: '##4B97FC'},
+                  ]}>
+                  62 %
+                </Text>
+                <Text
+                  style={[
+                    globalStyles.font16,
+                    globalStyles.bold,
+                    {color: '#073C7A'},
+                  ]}>
+                  12000
+                </Text>
+              </View>
+              <View style={globalStyles.mt8}>
+                <Bar
+                  progress={0.62}
+                  width={width - 48}
+                  color={'#458AE5'}
+                  unfilledColor={'#E3F0FC'}
+                />
+              </View>
+            </View>
+          )}
+          <Actions reportPost={reportPost} myPost={myPost} />
           <View style={[globalStyles.row, globalStyles.alignCenter]}>
             <List
               data={[
@@ -147,6 +212,11 @@ const Post = ({
               'pieroborgo Help this child ❤️ #helper #Ngo #help',
             )}
           </Text>
+          {detailsPage && (
+            <View style={[globalStyles.mt4]}>
+              <Comments navigation={navigation} />
+            </View>
+          )}
         </View>
       </View>
     </View>
@@ -165,6 +235,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 8,
     borderTopLeftRadius: 8,
     overflow: 'hidden',
+    zIndex: -2,
   },
   label: {
     padding: 12,
