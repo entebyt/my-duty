@@ -80,7 +80,7 @@ const EditProfile = () => {
             height={10}
             width={15}
             icon={ChevronDownBlack}
-            title={'Profesion'}
+            title={'Profession'}
           />
         }
       />

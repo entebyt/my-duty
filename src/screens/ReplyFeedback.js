@@ -80,9 +80,18 @@ const ReplyFeedback = ({navigation, route}) => {
 const Rating = ({active}) => (
   <View style={[globalStyles.mx8]}>
     {<StarIconGolden width={30} height={30} />}
+    <View style={[styles.dropShadow, globalStyles.shadow]}></View>
   </View>
 );
 const styles = StyleSheet.create({
+  dropShadow: {
+    backgroundColor: '#eee',
+
+    opacity: 0.35,
+    height: 30,
+    borderRadius: 10,
+    marginTop: -20,
+  },
   title: {fontSize: 20, color: colors.textprimary, fontWeight: 'bold'},
 });
 export default ReplyFeedback;

@@ -45,7 +45,7 @@ const Chat = ({navigation, route}) => {
                     globalStyles.bold,
                     {color: colors.white},
                   ]}>
-                  Support
+                  {!support ? 'Kuldeep Singh' : 'Support'}
                 </Text>
                 <View style={[styles.active, globalStyles.mt8]} />
               </View>
