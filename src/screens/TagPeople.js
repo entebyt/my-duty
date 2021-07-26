@@ -12,7 +12,7 @@ import UserProfileBasicInfo from '../components/UserInfo';
 import AddIcon from '../assets/icons/add_icon.svg';
 import Button from '../components/Button/ThemeButton';
 import CircleImage from '../components/CircleImage';
-const TagPeople = ({params}) => (
+const TagPeople = ({navigation}) => (
   <Container
     style={[globalStyles.p0, globalStyles.px16]}
     showHeader
@@ -57,7 +57,9 @@ const TagPeople = ({params}) => (
           imageData: <ImageProps type="lastSeen" text={'8 min.'} />,
         },
       ]}
-      action={() => navigation.navigate('Chat')}
+      action={user => {
+        alert(JSON.stringify(user));
+      }}
       profileType="people"
       profileNameStyle={globalStyles.font16}
       listItem={UserProfileBasicInfo}

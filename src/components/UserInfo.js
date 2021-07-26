@@ -135,7 +135,9 @@ const UserProfileBasicInfo = ({
       </TouchableWithoutFeedback>
       {profileType !== 'message' && (
         <TouchableOpacity
-          onPress={action ? action : () => setShowOptions(!showOptions)}
+          onPress={
+            action ? () => action(userData) : () => setShowOptions(!showOptions)
+          }
           style={[globalStyles.px16, globalStyles.py10]}>
           {Icon ? <Icon /> : <MoreIcon />}
         </TouchableOpacity>
